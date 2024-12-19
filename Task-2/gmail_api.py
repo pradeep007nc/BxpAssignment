@@ -1,3 +1,4 @@
+import argparse
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
@@ -10,20 +11,27 @@ SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 def authenticate_gmail():
     """Authenticate the user and return a Gmail API service instance."""
     creds = None
+    # Get the directory where the current Python script is located
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    token_path = os.path.join(current_dir, 'token.pickle')
+
     # Check if token.pickle exists (stored credentials)
-    if os.path.exists('token.pickle'):
-        with open('token.pickle', 'rb') as token:
+    if os.path.exists(token_path):
+        with open(token_path, 'rb') as token:
             creds = pickle.load(token)
+    
     # If no valid credentials, request the user to log in
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_secrets_file(os.path.join(os.getcwd(), 'Task-2/credentials.json'), SCOPES)
+            flow = InstalledAppFlow.from_client_secrets_file(os.path.join(current_dir, 'Task-2/credentials.json'), SCOPES)
             creds = flow.run_local_server(port=0)
+        
         # Save credentials for future use
-        with open('token.pickle', 'wb') as token:
+        with open(token_path, 'wb') as token:
             pickle.dump(creds, token)
+    
     return build('gmail', 'v1', credentials=creds)
 
 def fetch_emails(service, max_results=50):
@@ -50,8 +58,16 @@ def fetch_emails(service, max_results=50):
     return email_list
 
 def main():
+    # Set up argument parser
+    parser = argparse.ArgumentParser(description="Fetch emails from Gmail API")
+    parser.add_argument('--max_results', type=int, default=50, help="The number of emails to fetch (default: 50)")
+
+    # Parse the arguments
+    args = parser.parse_args()
+
+    # Authenticate and fetch emails with the provided max_results
     service = authenticate_gmail()
-    emails = fetch_emails(service)
+    emails = fetch_emails(service, max_results=args.max_results)
 
     # Display the sender and subject of each email
     print(f"{'Sender':<50} | {'Subject'}")

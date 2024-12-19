@@ -1,13 +1,12 @@
 # BxpAssignment
-BxpAssignment
 
-# Gmail API Setup Guide
+## Gmail API Setup Guide
 
 This guide will help you set up the Gmail API to access your personal Gmail account and fetch your emails. Follow the steps below to enable the API, obtain the necessary credentials, and authenticate your account.
 
 ---
 
-## Step 1: Enable Gmail API for Your Personal Account
+### Step 1: Enable Gmail API for Your Personal Account
 
 1. **Go to Google Cloud Console**  
    - Visit the [Google Cloud Console](https://console.cloud.google.com/).
@@ -23,7 +22,7 @@ This guide will help you set up the Gmail API to access your personal Gmail acco
 
 ---
 
-## Step 2: Enable Gmail API
+### Step 2: Enable Gmail API
 
 1. Navigate to **API & Services > Library** in the Google Cloud Console.  
 2. Search for "Gmail API" in the search bar.  
@@ -31,7 +30,7 @@ This guide will help you set up the Gmail API to access your personal Gmail acco
 
 ---
 
-## Step 3: Configure OAuth Consent Screen
+### Step 3: Configure OAuth Consent Screen
 
 1. Go to **API & Services > OAuth consent screen**.  
 2. Select **External** (for personal use).  
@@ -44,7 +43,7 @@ This guide will help you set up the Gmail API to access your personal Gmail acco
 
 ---
 
-## Step 4: Create OAuth 2.0 Credentials
+### Step 4: Create OAuth 2.0 Credentials
 
 1. Go to **API & Services > Credentials**.  
 2. Click **+ CREATE CREDENTIALS** and select **OAuth Client ID**.  
@@ -56,7 +55,7 @@ This guide will help you set up the Gmail API to access your personal Gmail acco
 
 ---
 
-## Step 5: Authenticate Your Personal Gmail
+### Step 5: Authenticate Your Personal Gmail
 
 1. Run your Python script (e.g., a script to fetch your Gmail emails).  
 2. The first time you run the script, it will:
@@ -65,13 +64,13 @@ This guide will help you set up the Gmail API to access your personal Gmail acco
 3. Grant permission using your personal Gmail account.  
 4. A `token.pickle` file will be generated to store your authentication for subsequent runs.  
 
+---
 
-## Run application
+## Running the Application
 
-1. Install required packages.
-    - google-api-python-client 
-    - google-auth 
-    - google-auth-httplib2 
-    - google-auth-oauthlib 
+### 1. Install Required Packages
 
-2. Go to Task-2 directory and run gmail_api.py file
+Before running the script, make sure you have the necessary dependencies installed. You can install the required Python packages using `pip`:
+
+```bash
+pip install google-api-python-client google-auth google-auth-httplib2 google-auth-oauthlib
