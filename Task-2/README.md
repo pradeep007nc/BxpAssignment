@@ -65,16 +65,13 @@ This guide will help you set up the Gmail API to access your personal Gmail acco
 3. Grant permission using your personal Gmail account.  
 4. A `token.pickle` file will be generated to store your authentication for subsequent runs.  
 
----
 
-## Notes
+## Run application
 
-- **Keep `credentials.json` Secure**:  
-  Do not share this file. If using version control, add it to your `.gitignore` file.
+1. Install required packages.
+    - google-api-python-client 
+    - google-auth 
+    - google-auth-httplib2 
+    - google-auth-oauthlib 
 
-- **Revoking Access**:  
-  If you no longer want the application to access your Gmail, go to [Google Account Permissions](https://myaccount.google.com/permissions) and revoke the app's access.
-
----
-
-Once these steps are completed, you will be able to fetch emails from your personal Gmail account securely.
+2. Go to Task-2 directory and run gmail_api.py file
