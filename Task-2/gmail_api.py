@@ -60,7 +60,7 @@ def fetch_emails(service, max_results=50):
 def main():
     # Set up argument parser
     parser = argparse.ArgumentParser(description="Fetch emails from Gmail API")
-    parser.add_argument('--max_results', type=int, default=50, help="The number of emails to fetch (default: 50)")
+    parser.add_argument('--max_results', type=int, default=200, help="The number of emails to fetch (default: 50)")
 
     # Parse the arguments
     args = parser.parse_args()

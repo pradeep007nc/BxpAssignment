@@ -74,3 +74,8 @@ Before running the script, make sure you have the necessary dependencies install
 
 ```bash
 pip install google-api-python-client google-auth google-auth-httplib2 google-auth-oauthlib
+
+### run the script gmail_api.py with arguments specifyingg size
+
+ -- for ex Python3 Task-2/gmail_api.py --max_results 50
+    by default size is 200
