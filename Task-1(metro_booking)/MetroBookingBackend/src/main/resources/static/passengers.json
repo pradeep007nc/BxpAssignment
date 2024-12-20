@@ -1,0 +1,37 @@
+[
+  {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "phone": "1234567890",
+    "address": "123 Main Street, Bangalore, Karnataka",
+    "activeStatus": "ACTIVE"
+  },
+  {
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "phone": "9876543210",
+    "address": "456 Park Avenue, Mumbai, Maharashtra",
+    "activeStatus": "ACTIVE"
+  },
+  {
+    "name": "Arjun Sharma",
+    "email": "arjun.sharma@example.com",
+    "phone": "7890123456",
+    "address": "789 Residency Road, Delhi",
+    "activeStatus": "ACTIVE"
+  },
+  {
+    "name": "Priya Patel",
+    "email": "priya.patel@example.com",
+    "phone": "4567891230",
+    "address": "101 Hilltop Colony, Ahmedabad, Gujarat",
+    "activeStatus": "ACTIVE"
+  },
+  {
+    "name": "Ravi Kumar",
+    "email": "ravi.kumar@example.com",
+    "phone": "6543210987",
+    "address": "32 Sunrise Villas, Hyderabad, Telangana",
+    "activeStatus": "ACTIVE"
+  }
+]

@@ -14,7 +14,7 @@ import lombok.ToString;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "station")
-public class Station extends BaseEntity{
+public class Station extends BaseEntity {
     private Long stationNumber;
     private String stationName;
     private Boolean isStartStation;
