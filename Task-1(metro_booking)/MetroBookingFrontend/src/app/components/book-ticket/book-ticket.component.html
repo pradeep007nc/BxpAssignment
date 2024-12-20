@@ -1,54 +1,61 @@
 <div class="container mx-auto p-4">
-  <h2 class="text-2xl font-bold mb-4">Book Ticket</h2>
-  <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" class="max-w-md">
+  <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Book Ticket</h2>
+
+  <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6">
+    <!-- Email Field -->
     <div class="mb-4">
-      <label class="block mb-2">Email</label>
+      <label class="block text-gray-700 font-semibold mb-2">Email</label>
       <input type="email" formControlName="passengerEmail"
-             class="w-full p-2 border rounded">
-      @if (bookingForm.get('passengerEmail')?.errors?.['email']) {
-        <div class="text-red-500 mt-1">
-          Please enter a valid email
-        </div>
-      }
+             class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+             placeholder="Enter your email" />
+      <div *ngIf="bookingForm.get('passengerEmail')?.errors?.['email']" class="text-red-500 mt-2 text-sm">
+        Please enter a valid email
+      </div>
     </div>
 
+    <!-- From Station Field -->
     <div class="mb-4">
-      <label class="block mb-2">From Station</label>
+      <label class="block text-gray-700 font-semibold mb-2">From Station</label>
       <select formControlName="fromStationNumber"
-              class="w-full p-2 border rounded">
+              (change)="calculatePrice()"
+              class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
         <option value="">Select Station</option>
-        @for (station of stations; track station.stationNumber) {
-          <option [value]="station.stationNumber">
-            {{station.stationName}}
-          </option>
-        }
+        <option *ngFor="let station of stations" [value]="station.stationNumber">
+          {{station.stationName}}
+        </option>
       </select>
     </div>
 
+    <!-- To Station Field -->
     <div class="mb-4">
-      <label class="block mb-2">To Station</label>
+      <label class="block text-gray-700 font-semibold mb-2">To Station</label>
       <select formControlName="toStationNumber"
-              class="w-full p-2 border rounded">
+              (change)="calculatePrice()"
+              class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
         <option value="">Select Station</option>
-        @for (station of stations; track station.stationNumber) {
-          <option [value]="station.stationNumber">
-            {{station.stationName}}
-          </option>
-        }
+        <option *ngFor="let station of stations" [value]="station.stationNumber">
+          {{station.stationName}}
+        </option>
       </select>
     </div>
 
+    <!-- Price Field -->
+    <div class="mb-4">
+      <label class="block text-gray-700 font-semibold mb-2">Price</label>
+      <p class="w-full p-3 bg-gray-100 rounded-md">{{ price ? '₹' + price : 'Select stations to calculate price' }}</p>
+    </div>
+
+    <!-- Submit Button -->
     <button type="submit" [disabled]="!bookingForm.valid"
-            class="bg-blue-500 text-white px-4 py-2 rounded">
+            class="w-full bg-blue-600 text-white py-3 rounded-md font-semibold disabled:bg-gray-400">
       Book Ticket
     </button>
   </form>
 
-  @if (bookingResponse) {
-    <div class="mt-4 p-4 bg-green-100 rounded">
-      <p>Ticket Reference: {{bookingResponse.ticketReferenceNumber}}</p>
-      <p>Price: ₹{{bookingResponse.price}}</p>
-      <p>{{bookingResponse.message}}</p>
-    </div>
-  }
+  <!-- Booking Response -->
+  <div *ngIf="bookingResponse" class="mt-6 p-4 bg-green-100 rounded-md shadow-md">
+    <p class="text-lg text-green-800 font-semibold">Ticket Reference: {{bookingResponse.ticketReferenceNumber}}</p>
+    <p class="text-xl text-green-600 font-bold">Price: ₹{{bookingResponse.price}}</p>
+    <p class="text-sm text-gray-600">{{bookingResponse.message}}</p>
+  </div>
 </div>

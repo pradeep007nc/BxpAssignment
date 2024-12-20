@@ -1,0 +1,103 @@
+/* Container Styling */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Heading */
+.container h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+/* Form Wrapper */
+.container .form-wrapper {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Label */
+.container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Input Field */
+.container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.container input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Buttons */
+.container button {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.container .btn-enter {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.container .btn-enter:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+.container .btn-exit {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.container .btn-exit:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+/* Validation Message */
+.container .validation-message {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.container .validation-message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.container .validation-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Flex Layout for Buttons */
+.container .button-group {
+  display: flex;
+  gap: 12px;
+}

@@ -1,1 +1,71 @@
 /* You can add global styles to this file, and also import other style files */
+/* Navigation Bar */
+.navbar {
+  background-color: #007bff; /* Primary blue background */
+  color: white; /* White text */
+  padding: 12px 20px; /* Adjust padding for a balanced look */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  position: sticky; /* Make the navbar sticky */
+  top: 0; /* Stick to the top */
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+/* Navbar Branding */
+.navbar .text-lg {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Flex container for navigation links */
+.navbar .flex {
+  display: flex;
+  gap: 16px;
+}
+
+/* Nav Links */
+.navbar .nav-link {
+  color: white; /* White text */
+  text-decoration: none; /* No underline */
+  padding: 8px 16px; /* Spacing around links */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 1rem; /* Standard text size */
+  font-weight: 500; /* Slightly bold */
+  transition: all 0.3s ease; /* Smooth hover transition */
+}
+
+.navbar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* Slight white overlay on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Active Route Link */
+.navbar .nav-link.active-link {
+  background-color: rgba(255, 255, 255, 0.3); /* Highlight the active link */
+  font-weight: 700; /* Make active link bolder */
+  color: #e3f2fd; /* Slightly lighter text color */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .navbar .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar .flex {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Page Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
