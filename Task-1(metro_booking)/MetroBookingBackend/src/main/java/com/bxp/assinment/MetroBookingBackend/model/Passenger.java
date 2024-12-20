@@ -1,9 +1,7 @@
 package com.bxp.assinment.MetroBookingBackend.model;
 
 import com.bxp.assinment.MetroBookingBackend.enums.ActiveStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -22,6 +20,7 @@ public class Passenger extends BaseEntity {
     private String email;
     private String phone;
     private String address;
+    @Enumerated(EnumType.STRING)
     private ActiveStatus activeStatus = ActiveStatus.ACTIVE;
 
     @OneToMany(mappedBy = "passenger")

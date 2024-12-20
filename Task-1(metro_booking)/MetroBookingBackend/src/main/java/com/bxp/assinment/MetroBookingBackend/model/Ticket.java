@@ -30,7 +30,9 @@ public class Ticket extends BaseEntity {
     @ToString.Exclude
     private Passenger passenger;
 
+    @Enumerated(EnumType.STRING)
     private TicketStatus ticketBookingStatus;
+    @Enumerated(EnumType.STRING)
     private ActiveStatus ticketActiveStatus;
     private String ticketReferenceNumber;
     private Double ticketPrice;

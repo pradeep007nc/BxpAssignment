@@ -1,10 +1,7 @@
 package com.bxp.assinment.MetroBookingBackend.advise;
 
 import com.bxp.assinment.MetroBookingBackend.Dto.ErrorResponseDto;
-import com.bxp.assinment.MetroBookingBackend.exception.EnterDetailsException;
-import com.bxp.assinment.MetroBookingBackend.exception.PassengerNotFoundException;
-import com.bxp.assinment.MetroBookingBackend.exception.StationNotFoundException;
-import com.bxp.assinment.MetroBookingBackend.exception.TicketException;
+import com.bxp.assinment.MetroBookingBackend.exception.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +25,8 @@ public class GlobalAdvisor {
                     MissingServletRequestParameterException.class,
                     HttpRequestMethodNotSupportedException.class,
                     BindException.class,
-                    EnterDetailsException.class
+                    EnterDetailsException.class,
+                    TicketTimedOutException.class
             })
     public ResponseEntity<ErrorResponseDto> handleBadRequestException(Exception exception) {
         log.error("Bad request exception: ", exception);
