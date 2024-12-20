@@ -1,0 +1,142 @@
+[
+  {
+    "stationNumber": 1,
+    "stationName": "Nagasandra",
+    "isStartStation": true,
+    "isEndStation": false,
+    "price": 10.0
+  },
+  {
+    "stationNumber": 2,
+    "stationName": "Jalahalli",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 15.0
+  },
+  {
+    "stationNumber": 3,
+    "stationName": "Peenya",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 20.0
+  },
+  {
+    "stationNumber": 4,
+    "stationName": "Yeshwanthpur",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 25.0
+  },
+  {
+    "stationNumber": 5,
+    "stationName": "Rajajinagar",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 30.0
+  },
+  {
+    "stationNumber": 6,
+    "stationName": "Mantri Square",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 35.0
+  },
+  {
+    "stationNumber": 7,
+    "stationName": "Majestic",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 40.0
+  },
+  {
+    "stationNumber": 8,
+    "stationName": "MG Road",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 45.0
+  },
+  {
+    "stationNumber": 9,
+    "stationName": "Trinity",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 50.0
+  },
+  {
+    "stationNumber": 10,
+    "stationName": "Indiranagar",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 55.0
+  },
+  {
+    "stationNumber": 11,
+    "stationName": "Swami Vivekananda Road",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 60.0
+  },
+  {
+    "stationNumber": 12,
+    "stationName": "Baiyappanahalli",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 65.0
+  },
+  {
+    "stationNumber": 13,
+    "stationName": "Halasuru",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 70.0
+  },
+  {
+    "stationNumber": 14,
+    "stationName": "KR Puram",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 75.0
+  },
+  {
+    "stationNumber": 15,
+    "stationName": "Silk Board",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 80.0
+  },
+  {
+    "stationNumber": 16,
+    "stationName": "Banashankari",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 85.0
+  },
+  {
+    "stationNumber": 17,
+    "stationName": "JP Nagar",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 90.0
+  },
+  {
+    "stationNumber": 18,
+    "stationName": "Jayanagar",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 95.0
+  },
+  {
+    "stationNumber": 19,
+    "stationName": "Lalbagh",
+    "isStartStation": false,
+    "isEndStation": false,
+    "price": 100.0
+  },
+  {
+    "stationNumber": 20,
+    "stationName": "Kanakapura Road",
+    "isStartStation": false,
+    "isEndStation": true,
+    "price": 105.0
+  }
+]

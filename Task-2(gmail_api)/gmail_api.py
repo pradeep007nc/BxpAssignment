@@ -25,7 +25,7 @@ def authenticate_gmail():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_secrets_file(os.path.join(current_dir, 'Task-2/credentials.json'), SCOPES)
+            flow = InstalledAppFlow.from_client_secrets_file(os.path.join(current_dir, 'credentials.json'), SCOPES)
             creds = flow.run_local_server(port=0)
         
         # Save credentials for future use
@@ -34,7 +34,7 @@ def authenticate_gmail():
     
     return build('gmail', 'v1', credentials=creds)
 
-def fetch_emails(service, max_results=50):
+def fetch_emails(service, max_results=0):
     """Fetch the sender and subject of the last 'max_results' emails."""
     results = service.users().messages().list(userId='me', maxResults=max_results).execute()
     messages = results.get('messages', [])
@@ -60,7 +60,7 @@ def fetch_emails(service, max_results=50):
 def main():
     # Set up argument parser
     parser = argparse.ArgumentParser(description="Fetch emails from Gmail API")
-    parser.add_argument('--max_results', type=int, default=200, help="The number of emails to fetch (default: 50)")
+    parser.add_argument('--max_results', type=int, default=200, help="The number of emails to fetch (default: 200)")
 
     # Parse the arguments
     args = parser.parse_args()
