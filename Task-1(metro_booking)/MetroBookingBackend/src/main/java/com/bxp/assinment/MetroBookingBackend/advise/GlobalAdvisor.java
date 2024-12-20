@@ -1,6 +1,10 @@
 package com.bxp.assinment.MetroBookingBackend.advise;
 
 import com.bxp.assinment.MetroBookingBackend.Dto.ErrorResponseDto;
+import com.bxp.assinment.MetroBookingBackend.exception.EnterDetailsException;
+import com.bxp.assinment.MetroBookingBackend.exception.PassengerNotFoundException;
+import com.bxp.assinment.MetroBookingBackend.exception.StationNotFoundException;
+import com.bxp.assinment.MetroBookingBackend.exception.TicketException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +27,8 @@ public class GlobalAdvisor {
                     HttpMediaTypeNotSupportedException.class,
                     MissingServletRequestParameterException.class,
                     HttpRequestMethodNotSupportedException.class,
-                    BindException.class
+                    BindException.class,
+                    EnterDetailsException.class
             })
     public ResponseEntity<ErrorResponseDto> handleBadRequestException(Exception exception) {
         log.error("Bad request exception: ", exception);
@@ -38,6 +43,19 @@ public class GlobalAdvisor {
         ErrorResponseDto errorResponseDto = new ErrorResponseDto();
         errorResponseDto.setMessage("Request timed out: " + exception.getMessage());
         return new ResponseEntity<>(errorResponseDto, HttpStatus.REQUEST_TIMEOUT);
+    }
+
+    @ExceptionHandler(
+            value = {
+                    TicketException.class,
+                    StationNotFoundException.class,
+                    PassengerNotFoundException.class
+            })
+    public ResponseEntity<ErrorResponseDto> handleNotFoundException(Exception exception) {
+        log.error("Bad request exception: ", exception);
+        ErrorResponseDto errorResponseDto = new ErrorResponseDto();
+        errorResponseDto.setMessage(exception.getMessage());
+        return new ResponseEntity<>(errorResponseDto, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler

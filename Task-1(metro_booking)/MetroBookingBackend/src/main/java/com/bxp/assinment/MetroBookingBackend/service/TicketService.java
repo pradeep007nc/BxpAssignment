@@ -2,7 +2,6 @@ package com.bxp.assinment.MetroBookingBackend.service;
 
 import com.bxp.assinment.MetroBookingBackend.Dto.BookingRequestDto;
 import com.bxp.assinment.MetroBookingBackend.Dto.BookingResponseDto;
-import com.bxp.assinment.MetroBookingBackend.Dto.EnterExistStationResponseDto;
 import com.bxp.assinment.MetroBookingBackend.constants.TicketConstants;
 import com.bxp.assinment.MetroBookingBackend.enums.ActiveStatus;
 import com.bxp.assinment.MetroBookingBackend.enums.TicketStatus;
@@ -47,26 +46,6 @@ public class TicketService {
         return new BookingResponseDto(ticketReferenceNumber,
                 price,
                 TicketConstants.TICKET_BOOKED_SUCCESSFULLY);
-    }
-
-    public EnterExistStationResponseDto enterStation(String ticketReferenceNumber) {
-        //check if the ticket booked is within 18hrs
-        //check if the ticket is active and not used before
-        Ticket ticket = ticketRepository.findByTicketRefEnterStation(ticketReferenceNumber);
-        ticket.setTicketBookingStatus(TicketStatus.ENTERED_STATION);
-        ticketRepository.saveTicket(ticket);
-        return new EnterExistStationResponseDto(TicketConstants.ENTERED_STATION_SUCCESSFULLY);
-    }
-
-    //after exiting station ticket becomes inactive
-    public EnterExistStationResponseDto exitStation(String ticketReferenceNumber) {
-        //check if the ticket is active and not used before
-        //also check if the passenger has already entered the station
-        Ticket ticket = ticketRepository.findByTicketRefExitStation(ticketReferenceNumber);
-        ticket.setTicketBookingStatus(TicketStatus.EXITED_STATION);
-        ticket.setTicketActiveStatus(ActiveStatus.INACTIVE);
-        ticketRepository.saveTicket(ticket);
-        return new EnterExistStationResponseDto(TicketConstants.EXITED_STATION_SUCCESSFULLY);
     }
 
     private Ticket mapTicket(
